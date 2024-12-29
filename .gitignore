@@ -25,6 +25,7 @@ pyunittests/totaltestsdone.txt
 *CMakeCache.txt
 *Makefile
 *cmake_install.cmake
+CMakeDoxy*
 moc_*.cxx
 moc_*.cxx_parameters
 ui_*.h
