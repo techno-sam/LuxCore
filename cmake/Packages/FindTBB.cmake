@@ -23,13 +23,13 @@ IF (NOT TBB_INCLUDE_PATH)
 		/opt/local/include)
 ENDIF()
 
-FIND_LIBRARY(TBB_LIBRARY NAMES libtbb tbb tbb.so PATHS
+FIND_LIBRARY(TBB_LIBRARY NAMES libtbb tbb libtbb.so.12 tbb.so.12 PATHS
 	${TBB_ROOT}/lib/x64
 	${TBB_ROOT}/lib
 	${TBB_ROOT}/build
 	NO_DEFAULT_PATH)
 IF (NOT TBB_LIBRARY)
-	FIND_LIBRARY(TBB_LIBRARY NAMES libtbb tbb tbb.so PATHS
+	FIND_LIBRARY(TBB_LIBRARY NAMES libtbb tbb libtbb.so.12 tbb.so.12 PATHS
 		/usr/lib 
 		/usr/lib64
 		/usr/local/lib 

@@ -100,8 +100,8 @@ SET(PNG_LIBRARIES ${OSX_DEPENDENCY_ROOT}/lib/libpng.a ${OSX_DEPENDENCY_ROOT}/lib
 SET(PNG_INCLUDE_DIR ${OSX_DEPENDENCY_ROOT}/include/png)
 SET(PNG_FOUND ON)
 
-SET(EMBREE_LIBRARY ${OSX_DEPENDENCY_ROOT}/lib/libembree3.dylib) # ${OSX_DEPENDENCY_ROOT}/lib/libsys.a ${OSX_DEPENDENCY_ROOT}/lib/libmath.a ${OSX_DEPENDENCY_ROOT}/lib/libsimd.a ${OSX_DEPENDENCY_ROOT}/lib/liblexers.a ${OSX_DEPENDENCY_ROOT}/lib/libtasking.a ${OSX_DEPENDENCY_ROOT}/lib/libembree_sse42.a ${OSX_DEPENDENCY_ROOT}/lib/libembree_avx.a ${OSX_DEPENDENCY_ROOT}/lib/libembree_avx2.a)
-SET(EMBREE_INCLUDE_PATH ${OSX_DEPENDENCY_ROOT}/include/embree3)
+SET(EMBREE_LIBRARY ${OSX_DEPENDENCY_ROOT}/lib/libembree4.dylib) # ${OSX_DEPENDENCY_ROOT}/lib/libsys.a ${OSX_DEPENDENCY_ROOT}/lib/libmath.a ${OSX_DEPENDENCY_ROOT}/lib/libsimd.a ${OSX_DEPENDENCY_ROOT}/lib/liblexers.a ${OSX_DEPENDENCY_ROOT}/lib/libtasking.a ${OSX_DEPENDENCY_ROOT}/lib/libembree_sse42.a ${OSX_DEPENDENCY_ROOT}/lib/libembree_avx.a ${OSX_DEPENDENCY_ROOT}/lib/libembree_avx2.a)
+SET(EMBREE_INCLUDE_PATH ${OSX_DEPENDENCY_ROOT}/include/embree4)
 SET(EMBREE_FOUND ON)
 
 SET(OPENIMAGEIO_LIBRARY ${OSX_DEPENDENCY_ROOT}/lib/libOpenImageIO.a)

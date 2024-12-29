@@ -27,11 +27,11 @@ install_name_tool -id @executable_path/../Resources/libs/libomp.dylib LuxCore.ap
 
 #libembree
 
-cp -f $DEPS_SOURCE/lib/libembree3.3.dylib LuxCore.app/Contents/Resources/libs/libembree3.3.dylib
-chmod +w LuxCore.app/Contents/Resources/libs/libembree3.3.dylib
-install_name_tool -id @executable_path/../Resources/libs/libembree3.3.dylib LuxCore.app/Contents/Resources/libs/libembree3.3.dylib
-install_name_tool -change @rpath/libtbb.dylib @executable_path/../Resources/libs/libtbb.dylib LuxCore.app/Contents/Resources/libs/libembree3.3.dylib
-install_name_tool -change @rpath/libtbbmalloc.dylib @executable_path/../Resources/libs/libtbbmalloc.dylib LuxCore.app/Contents/Resources/libs/libembree3.3.dylib
+cp -f $DEPS_SOURCE/lib/libembree4.4.dylib LuxCore.app/Contents/Resources/libs/libembree4.4.dylib
+chmod +w LuxCore.app/Contents/Resources/libs/libembree4.4.dylib
+install_name_tool -id @executable_path/../Resources/libs/libembree4.4.dylib LuxCore.app/Contents/Resources/libs/libembree4.4.dylib
+install_name_tool -change @rpath/libtbb.dylib @executable_path/../Resources/libs/libtbb.dylib LuxCore.app/Contents/Resources/libs/libembree4.4.dylib
+install_name_tool -change @rpath/libtbbmalloc.dylib @executable_path/../Resources/libs/libtbbmalloc.dylib LuxCore.app/Contents/Resources/libs/libembree4.4.dylib
 
 
 #libOpenImageDenoise
@@ -75,7 +75,7 @@ cp -f $DEPS_SOURCE/lib/libnvrtc.dylib LuxCore.app/Contents/Resources/libs/libnvr
 #luxcoreui
 
 install_name_tool -change @rpath/libomp.dylib @executable_path/../Resources/libs/libomp.dylib LuxCore.app/Contents/MacOS/luxcoreui
-install_name_tool -change @rpath/libembree3.3.dylib @executable_path/../Resources/libs/libembree3.3.dylib LuxCore.app/Contents/MacOS/luxcoreui
+install_name_tool -change @rpath/libembree4.4.dylib @executable_path/../Resources/libs/libembree4.4.dylib LuxCore.app/Contents/MacOS/luxcoreui
 install_name_tool -change @rpath/libtbb.dylib @executable_path/../Resources/libs/libtbb.dylib LuxCore.app/Contents/MacOS/luxcoreui
 install_name_tool -change @rpath/libOpenImageIO.2.2.dylib @executable_path/../Resources/libs/libOpenImageIO.2.2.dylib LuxCore.app/Contents/MacOS/luxcoreui
 install_name_tool -change @rpath/libtbbmalloc.dylib @executable_path/../Resources/libs/libtbbmalloc.dylib LuxCore.app/Contents/MacOS/luxcoreui
@@ -91,7 +91,7 @@ cp ../build/Release/luxcoreconsole LuxCore.app/Contents/MacOS
 #luxcoreconsole
 
 install_name_tool -change @rpath/libomp.dylib @executable_path/../Resources/libs/libomp.dylib ./LuxCore.app/Contents/MacOS/luxcoreconsole
-install_name_tool -change @rpath/libembree3.3.dylib @executable_path/../Resources/libs/libembree3.3.dylib ./LuxCore.app/Contents/MacOS/luxcoreconsole
+install_name_tool -change @rpath/libembree4.4.dylib @executable_path/../Resources/libs/libembree4.4.dylib ./LuxCore.app/Contents/MacOS/luxcoreconsole
 install_name_tool -change @rpath/libtbb.dylib @executable_path/../Resources/libs/libtbb.dylib ./LuxCore.app/Contents/MacOS/luxcoreconsole
 install_name_tool -change @rpath/libOpenImageIO.2.2.dylib @executable_path/../Resources/libs/libOpenImageIO.2.2.dylib ./LuxCore.app/Contents/MacOS/luxcoreconsole
 install_name_tool -change @rpath/libtbbmalloc.dylib @executable_path/../Resources/libs/libtbbmalloc.dylib ./LuxCore.app/Contents/MacOS/luxcoreconsole
@@ -117,7 +117,7 @@ install_name_tool -id @loader_path/libomp.dylib ./libomp.dylib
 
 #libembree
 
-cp -f $DEPS_SOURCE/lib/libembree3.3.dylib ./libembree3.3.dylib
+cp -f $DEPS_SOURCE/lib/libembree4.4.dylib ./libembree4.4.dylib
 
 #libtbb
 
@@ -160,7 +160,7 @@ cp -f $DEPS_SOURCE/lib/libnvrtc.dylib ./libnvrtc.dylib
 #pyluxcore.so
 
 install_name_tool -change @rpath/libomp.dylib @loader_path/libomp.dylib pyluxcore.so
-install_name_tool -change @rpath/libembree3.3.dylib @loader_path/libembree3.3.dylib pyluxcore.so
+install_name_tool -change @rpath/libembree4.4.dylib @loader_path/libembree4.4.dylib pyluxcore.so
 install_name_tool -change @rpath/libtbb.dylib @loader_path/libtbb.dylib pyluxcore.so
 install_name_tool -change @rpath/libtiff.5.dylib @loader_path/libtiff.5.dylib pyluxcore.so
 install_name_tool -change @rpath/libOpenImageIO.2.2.dylib @loader_path/libOpenImageIO.2.2.dylib pyluxcore.so

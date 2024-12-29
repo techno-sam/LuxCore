@@ -9,7 +9,7 @@ def binaries_list():
 		('../../../WindowsCompile/Build_CMake/LuxCore/lib/Release/pyluxcore.pyd', '.'),
 		('../../../WindowsCompile/Build_CMake/LuxCore/lib/pyluxcoretools.zip', '.'),
 		('../../../WindowsCompileDeps/x64/Release/lib/OpenImageDenoise.dll', '.'),
-		('../../../WindowsCompileDeps/x64/Release/lib/embree3.dll', '.'),
+		('../../../WindowsCompileDeps/x64/Release/lib/embree4.dll', '.'),
 		('../../../WindowsCompileDeps/x64/Release/lib/tbb12.dll', '.'),
         ('../../../WindowsCompileDeps/x64/Release/lib/tbb.dll', '.'),
 		('../../../WindowsCompileDeps/x64/Release/lib/tbbmalloc.dll', '.'),
