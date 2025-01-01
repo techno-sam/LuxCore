@@ -28,13 +28,13 @@ FIND_LIBRARY(TBB_LIBRARY NAMES libtbb tbb libtbb.so.12 tbb.so.12 PATHS
 	${TBB_ROOT}/lib
 	${TBB_ROOT}/build
 	NO_DEFAULT_PATH)
-IF (NOT TBB_LIBRARY)
-	FIND_LIBRARY(TBB_LIBRARY NAMES libtbb tbb libtbb.so.12 tbb.so.12 PATHS
-		/usr/lib 
-		/usr/lib64
-		/usr/local/lib 
-		/opt/local/lib)
-ENDIF()
+#IF (NOT TBB_LIBRARY)
+#	FIND_LIBRARY(TBB_LIBRARY NAMES libtbb tbb libtbb.so.12 tbb.so.12 PATHS
+#		/usr/lib
+#		/usr/lib64
+#		/usr/local/lib
+#		/opt/local/lib)
+#ENDIF()
 
 IF (TBB_INCLUDE_PATH AND TBB_LIBRARY)
 	SET(TBB_LIBRARY ${TBB_LIBRARY} ${TBB_LIBRARY})
