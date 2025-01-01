@@ -176,7 +176,7 @@ set(PYLUXCORE_SRCS
 add_library(pyluxcore MODULE ${PYLUXCORE_SRCS} ${LUXCORE_LIB_SRCS} ${LUX_PARSER_SRC})
 
 include_directories(${LuxRays_SOURCE_DIR}/deps/openvdb-11.0.0)
-include_directories(${LuxRays_SOURCE_DIR}/deps/opencolorio-2.0.0/include)
+include_directories(${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/include)
 
 add_definitions(-DOPENVDB_STATICLIB ${VISIBILITY_FLAGS})
 if(APPLE)
