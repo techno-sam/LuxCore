@@ -16,6 +16,7 @@
 
 #include <OpenColorIO/OpenColorIO.h>
 
+#include "builtinconfigs/BuiltinConfigRegistry.h"
 #include "ConfigUtils.h"
 #include "ContextVariableUtils.h"
 #include "Display.h"
@@ -1166,6 +1167,15 @@ ConstConfigRcPtr Config::CreateFromFile(const char * filename)
         os << "Error could not read '" << filename;
         os << "' OCIO profile.";
         throw Exception (os.str().c_str());
+    }
+
+    // Check for URI Pattern: ocio://<config name>
+    static const std::regex uriPattern(R"(ocio:\/\/([^\s]+))");
+    std::smatch match;
+    const std::string uri = filename;
+    if (std::regex_search(uri, match, uriPattern))
+    {
+        return CreateFromBuiltinConfig(uri.c_str());
     }
 
     // Not an OCIOZ archive. Continue as usual.
