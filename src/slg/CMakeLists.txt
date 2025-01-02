@@ -275,6 +275,9 @@ set(OPENCOLORIO_SRCS
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/Baker.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/BakingUtils.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/BitDepthUtils.cpp
+	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/builtinconfigs/BuiltinConfigRegistry.cpp
+	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/builtinconfigs/CGConfig.cpp
+	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/builtinconfigs/StudioConfig.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/Caching.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/ColorSpace.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/ColorSpaceSet.cpp
