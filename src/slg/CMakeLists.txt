@@ -445,7 +445,7 @@ set(OPENCOLORIO_SRCS
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/apputils/argparse.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/apputils/strutil.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/apputils/logGuard.cpp
-	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/utils/StringUtils.h
+	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/pystring/pystring.cpp
 )
 
 set(YAMLCPP_SRCS
