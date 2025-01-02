@@ -30,6 +30,7 @@ find_package(Threads REQUIRED)
 
 find_package(OpenImageIO REQUIRED)
 include_directories(BEFORE SYSTEM ${OPENIMAGEIO_INCLUDE_DIR})
+set(OPENEXR_ROOT                "${OPENEXR_SEARCH_PATH}")
 find_package(OpenEXR REQUIRED)
 
 if(NOT APPLE)
