@@ -71,7 +71,6 @@ set(SOURCES
     MathUtils.cpp
     NamedTransform.cpp
     OCIOYaml.cpp
-    OCIOZArchive.cpp
     Op.cpp
     OpOptimizers.cpp
     ops/allocation/AllocationOp.cpp

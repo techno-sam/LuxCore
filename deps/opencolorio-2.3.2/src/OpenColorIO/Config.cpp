@@ -16,7 +16,6 @@
 
 #include <OpenColorIO/OpenColorIO.h>
 
-#include "builtinconfigs/BuiltinConfigRegistry.h"
 #include "ConfigUtils.h"
 #include "ContextVariableUtils.h"
 #include "Display.h"
@@ -29,7 +28,6 @@
 #include "Mutex.h"
 #include "NamedTransform.h"
 #include "OCIOYaml.h"
-#include "OCIOZArchive.h"
 #include "OpBuilders.h"
 #include "ParseUtils.h"
 #include "PathUtils.h"
@@ -1157,15 +1155,6 @@ ConstConfigRcPtr Config::CreateFromFile(const char * filename)
         throw ExceptionMissingFile ("The config filepath is missing.");
     }
 
-    // Check for URI Pattern: ocio://<config name>
-    static const std::regex uriPattern(R"(ocio:\/\/([^\s]+))");
-    std::smatch match;
-    const std::string uri = filename;
-    if (std::regex_search(uri, match, uriPattern))
-    {
-        return CreateFromBuiltinConfig(uri.c_str());
-    }
-
     std::ifstream ifstream = Platform::CreateInputFileStream(
         filename, 
         std::ios_base::in | std::ios_base::binary
@@ -1178,26 +1167,6 @@ ConstConfigRcPtr Config::CreateFromFile(const char * filename)
         os << "' OCIO profile.";
         throw Exception (os.str().c_str());
     }
-
-    char magicNumber[2] = { 0 };
-    if (ifstream.read(magicNumber, 2))
-    {
-        // Check if it is an OCIOZ archive.
-        if (magicNumber[0] == 'P' && magicNumber[1] == 'K')
-        {
-            // Closing ifstream even though it should be close by ifstream deconstructor (RAII).
-            ifstream.close();
-
-            // The file should be an OCIOZ archive file.
-
-            auto ciop = std::make_shared<CIOPOciozArchive>();
-            // Store archive absolute path.
-            ciop->setArchiveAbsPath(filename);
-            // Build the entries map.
-            ciop->buildEntries();
-            return CreateFromConfigIOProxy(ciop);
-        }
-    } 
 
     // Not an OCIOZ archive. Continue as usual.
     ifstream.clear();
@@ -5471,87 +5440,6 @@ void Config::setConfigIOProxy(ConfigIOProxyRcPtr ciop)
 ConfigIOProxyRcPtr Config::getConfigIOProxy() const
 {
     return getImpl()->m_context->getConfigIOProxy();
-}
-
-bool Config::isArchivable() const
-{
-    ConstContextRcPtr context = getCurrentContext();
-
-    // Current archive implementation needs a working directory to look for LUT files and 
-    // working directory must be an absolute path.
-    const char * workingDirectory = getWorkingDir();
-    if ((workingDirectory && !workingDirectory[0]) || !pystring::os::path::isabs(workingDirectory))
-    {
-        return false;
-    }
-
-    // Utility lambda to check the following criteria.
-    auto validatePathForArchiving = [](const std::string & path) 
-    {
-        // Using the normalized path.
-        const std::string normPath = pystring::os::path::normpath(path);
-        if (    
-                // 1) Path may not be absolute.
-                pystring::os::path::isabs(normPath)  || 
-                // 2) Path may not start with double dot ".." (going above working directory).
-                pystring::startswith(normPath, "..") ||
-                // 3) A context variable may not be located at the start of the path.
-                (ContainsContextVariables(path) && 
-                (StringUtils::Find(path, "$") == 0 || 
-                 StringUtils::Find(path, "%") == 0)))
-        {
-            return false;
-        }
-
-        return true;
-    };
-
-    ///////////////////////////////
-    // Search path verification. //
-    ///////////////////////////////
-    // Check that search paths are not absolute nor have context variables outside of config 
-    // working directory.
-    int numSearchPaths = getNumSearchPaths();
-    for (int i = 0; i < numSearchPaths; i++)
-    {
-        std::string currentPath = getSearchPath(i);
-        if (!validatePathForArchiving(currentPath))
-        {
-            // Exit and return false.
-            return false;
-        }
-    }
-
-    /////////////////////////////////
-    // FileTransform verification. //
-    /////////////////////////////////
-    ConstTransformVec allTransforms;
-    getImpl()->getAllInternalTransforms(allTransforms);
-
-    std::set<std::string> files;
-    for(const auto & transform : allTransforms)
-    {
-        GetFileReferences(files, transform);
-    }
-
-    // Check that FileTransform sources are not absolute nor have context variables outside of 
-    // config working directory.
-    for (const auto & path : files)
-    {
-        if (!validatePathForArchiving(path))
-        {
-            // Exit and return false.
-            return false;
-        }
-    }
-
-    return true;
-}
-
-void Config::archive(std::ostream & ostream) const
-{
-    // Using utility functions in OCIOZArchive.cpp.
-    archiveConfig(ostream, *this, getCurrentContext()->getWorkingDir());
 }
 
 } // namespace OCIO_NAMESPACE
