@@ -333,7 +333,6 @@ set(OPENCOLORIO_SRCS
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/MathUtils.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/NamedTransform.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/OCIOYaml.cpp
-	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/OCIOZArchive.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/Op.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/OpOptimizers.cpp
 	${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO/ops/allocation/AllocationOp.cpp
