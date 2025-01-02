@@ -14,6 +14,7 @@
 #include "ContextVariableUtils.h"
 #include "HashUtils.h"
 #include "Mutex.h"
+#include "OCIOZArchive.h"
 #include "PathUtils.h"
 #include "PrivateTypes.h"
 #include "utils/StringUtils.h"

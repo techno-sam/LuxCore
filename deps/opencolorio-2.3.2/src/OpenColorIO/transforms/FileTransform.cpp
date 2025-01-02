@@ -17,6 +17,7 @@
 #include "FileTransform.h"
 #include "Logging.h"
 #include "Mutex.h"
+#include "OCIOZArchive.h"
 #include "ops/noop/NoOps.h"
 #include "PathUtils.h"
 #include "Platform.h"
