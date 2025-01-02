@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright Contributors to the OpenColorIO Project.
 
-#include <pystring.h>
+#include "pystring/pystring.h"
 
 #include "ConfigUtils.h"
 #include "MathUtils.h"

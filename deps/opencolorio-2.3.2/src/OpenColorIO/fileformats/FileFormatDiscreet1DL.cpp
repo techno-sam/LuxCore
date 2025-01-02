@@ -8,7 +8,7 @@
 #include <sstream>
 #include <iostream>
 
-#include <pystring.h>
+#include "pystring/pystring.h"
 
 #include <OpenColorIO/OpenColorIO.h>
 

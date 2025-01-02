@@ -8,7 +8,7 @@
 #include <set>
 #include <limits>
 
-#include <pystring.h>
+#include "pystring/pystring.h"
 
 #include <OpenColorIO/OpenColorIO.h>
 
