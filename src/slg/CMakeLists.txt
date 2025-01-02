@@ -490,7 +490,7 @@ set(EXPAT_SRCS
 SOURCE_GROUP("Source Files\\OpenColorIO Library" FILES ${OPENCOLORIO_SRCS} ${YAMLCPP_SRCS} ${EXPAT_SRCS})
 
 include_directories(${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/include)
-include_directories(${LuxRays_SOURCE_DIR}/deps/opencolorio-2.2.2/src)
+include_directories(${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src)
 include_directories(${LuxRays_SOURCE_DIR}/deps/opencolorio-2.3.2/src/OpenColorIO)
 include_directories(${LuxRays_SOURCE_DIR}/deps/yaml-cpp-0.6.3/include)
 include_directories(${LuxRays_SOURCE_DIR}/deps/expat-2.3.0/src)
