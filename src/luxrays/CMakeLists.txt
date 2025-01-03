@@ -278,7 +278,7 @@ set(LUXRAYS_LIB_SRCS
 add_library(luxrays STATIC ${LUXRAYS_LIB_SRCS})
 add_definitions(-DCPP_API_EXPORTS ${VISIBILITY_FLAGS}) # for controlling visibility
 
-TARGET_LINK_LIBRARIES(luxrays ${OPENIMAGEIO_LIBRARIES})
+TARGET_LINK_LIBRARIES(luxrays ${OPENIMAGEIO_LIBRARIES} ${TBB_LIBRARY} -ldeflate)
 TARGET_LINK_LIBRARIES(luxrays ${Boost_LIBRARIES})
 if (WIN32)
 # This is needed by Boost 1.67 but is not found automatically
